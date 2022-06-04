@@ -14,3 +14,5 @@ interface ImportMetaEnv {
   VITE_USE_FIREBASE_EMULATOR: string;
   VITE_API_ORIGIN: string;
 }
+
+declare module 'react-tabs';
