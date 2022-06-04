@@ -2,7 +2,7 @@ import { appRoutesHeaders } from '~/components/router/appRoutes';
 import { Head } from '~/components/shared/components/Head/Head';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import elf from '~/assets/heroes/elf.gif'
-import knight from '~/assets/heroes/knight.gif'
+import knight from '~/assets/heroes/Knight.gif'
 import warrior from '~/assets/heroes/warrior.gif'
 import redKnight from '~/assets/heroes/red-knight.gif'
 import bronzeKnight from '~/assets/heroes/bronze-knight.gif'
@@ -33,7 +33,7 @@ const Shop = () => {
     'fantasy',
     'wireframe',
     'dracula',
-    'cmyk',
+    'cmyk'
   ] as const;
 
   return (
@@ -54,9 +54,9 @@ const Shop = () => {
           </TabList>
 
           <TabPanel className="h-4/5 flex flex-row justify-around flex-wrap">
-            {themes.map((theme) => (
+            {/* {themes.map((theme) => (
               <ThemePicker key={theme} theme={theme} />
-            ))}
+            ))} */}
           </TabPanel>
           <TabPanel className="flex flex-wrap justify-around">
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">

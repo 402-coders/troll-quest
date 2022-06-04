@@ -35,14 +35,15 @@ export const Game = () => {
 
   return (
     <div className="w-full justify-center">
-      <div className="flex justify-around">
+      <div className="flex justify-center gap-4 mt-10">
         <Monster />
         <Hero />
       </div>
+      
       <Carousel dotPosition="bottom" ref={sliderRef}>
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
-            <div className="flex justify-around m-auto">
+            <div className="flex justify-evenly py-10 max-w-screen-2xl m-auto">
               <Question header={right.title} image={right.image_url} source={right.source} onClick={handleClick} />
               <Question header={left.title} image={left.image_url} source={left.source} onClick={handleClick} />
             </div>
