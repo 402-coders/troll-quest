@@ -1,7 +1,14 @@
 import { appRoutesHeaders } from '~/components/router/appRoutes';
 import { Head } from '~/components/shared/components/Head/Head';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import elf from '~/assets/heroes/elf.gif';
+import elf from '~/assets/heroes/elf.gif'
+import knight from '~/assets/heroes/knight.gif'
+import warrior from '~/assets/heroes/warrior.gif'
+import redKnight from '~/assets/heroes/red-knight.gif'
+import bronzeKnight from '~/assets/heroes/bronze-knight.gif'
+import warriorGrey from '~/assets/heroes/warrior-1.gif'
+import warriorGold from '~/assets/heroes/warrior-2.gif'
+import violetElf from '~/assets/heroes/elf-violet.gif'
 import { SearchCircleIcon } from '@heroicons/react/outline';
 import { ThemePicker } from '~/components/domain/shop/components/ThemePicker';
 
@@ -48,30 +55,63 @@ const Shop = () => {
 
           <TabPanel className="h-4/5 flex flex-row justify-around flex-wrap">
             {themes.map((theme) => (
-              <ThemePicker key={theme} theme={theme}></ThemePicker>
+              <ThemePicker key={theme} theme={theme} />
             ))}
           </TabPanel>
-          <TabPanel>
-            <div className="border-5 border-black w-36 flex flex-col items-center">
-              <img src={elf} />
-              <p>Elf</p>
-              <SearchCircleIcon className="w-7" />
-            </div>
-            <div className="border-5 border-black w-36 flex flex-col items-center">
-              <img src={elf} />
-              <p>Elf</p>
-              <SearchCircleIcon className="w-7" />
-            </div>
-            <div className="border-5 border-black w-36 flex flex-col items-center">
-              <img src={elf} />
-              <p>Elf</p>
-              <SearchCircleIcon className="w-7" />
-            </div>
-          </TabPanel>
+          <TabPanel className="flex flex-wrap justify-around">
+      <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
+        <img className="h-32 m-2" src={elf} />
+        <p>Elf</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
+        <img className="h-32 m-2" src={warrior} />
+        <p>Warrior</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
+        <img className="h-32 m-2" src={knight} />
+        <p>Gold Knight</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
+        <img className="h-32 m-2" src={redKnight} />
+        <p>Silver Knight</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
+        <img className="h-32 m-2" src={bronzeKnight} />
+        <p>Bronze Knight</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
+        <img className="h-32 m-2" src={warriorGrey} />
+        <p>Bronze Warrior Women</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
+        <img className="h-32 m-2" src={warriorGold} />
+        <p>Warrior Women</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+      <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
+        <img className="h-32 m-2" src={violetElf} />
+        <p>Elf</p>
+        <SearchCircleIcon className="w-7" />
+        <p>5000</p>
+      </div>
+    </TabPanel>
           <TabPanel>coś jeszcze</TabPanel>
         </Tabs>
       </div>
-    </>
+      </>
   );
 };
 
