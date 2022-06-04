@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { SignInButton } from '~/components/domain/auth/SignInButton';
 import { SignOutButton } from '~/components/domain/auth/SignOutButton';
-import { Head } from '~/components/shared/Head';
+import { Head } from '~/components/shared/components/Head/Head';
 
 function Index() {
   const { state } = useAuthState();
