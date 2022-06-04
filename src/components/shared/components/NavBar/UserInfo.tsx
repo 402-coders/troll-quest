@@ -26,10 +26,8 @@ const UserInfo = ({ user }: UserInfoProps) => {
         </div>
       </div>
 
-      {/* <div className="flex mt-0.5 items-start"> */}
       <h3 className="self-center text-3xl m-0">{user.displayName}</h3>
       <SignOutButton />
-      {/* </div> */}
     </div>
   );
 };

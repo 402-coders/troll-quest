@@ -1,11 +1,12 @@
 import { Navigate } from 'react-router-dom';
 import { useAuthState } from '../contexts/UserContext';
 import { GoogleButton } from '../domain/auth/components/GoogleButton';
-import { SignOutButton } from '../domain/auth/components/SignOutButton';
-import { appRoutes } from '../router/appRoutes';
+import { appRoutes, appRoutesHeaders } from '../router/appRoutes';
+import { Head } from '../shared/components/Head/Head';
 import { Loader } from '../shared/components/Loader';
-import Logo from '../shared/components/Logo/Logo';
 import { ShareButton } from '../shared/components/ShareButton/ShareButton';
+import trollWalk from '~/assets/troll/troll-walk.gif';
+import logo from '~/assets/Logo.png';
 
 function Index() {
   const { state } = useAuthState();
@@ -15,14 +16,13 @@ function Index() {
 
   return (
     <>
-      {/* <Head title="TOP PAGE" /> */}
-      <div className="w-screen h-screen grid grid-cols-2 grid-rows-1 min-h-screen bg-secondary m-0">
-        <img className="object-cover h-full w-full" src="../../../assets/main-page-troll.gif" alt="" />
-        <div className="flex flex-col space-y-10 justify-center items-center">
-          <Logo />
+      <Head title={appRoutesHeaders.signIn} />
+      <div className="w-screen h-screen grid grid-cols-2 grid-rows-1 bg-secondary m-0">
+        <img className="object-cover self-center justify-self-center w-11/12" src={trollWalk} alt="walking troll" />
+        <div className="flex flex-col space-y-10 justify-center items-center mr-16">
+          <img src={logo} alt="logo" />
           <GoogleButton />
           <ShareButton />
-          <SignOutButton />
         </div>
       </div>
     </>

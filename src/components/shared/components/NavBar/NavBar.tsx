@@ -13,7 +13,7 @@ function NavBar() {
     <RequireAuth>
       <>
         <nav className="navbar h-20 bg-primary justify-between px-6 mb-8">
-          <div>
+          <div className="gap-4">
             <Link to={appRoutes.home} className="btn btn-ghost normal-case text-xl">
               Start
             </Link>
