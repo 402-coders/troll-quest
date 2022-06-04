@@ -1,3 +1,4 @@
+import { useAuthState } from '~/components/contexts/UserContext';
 import { usePreviewTheme } from '../hooks/usePreviewTheme';
 import { usePurchaseTheme } from '../hooks/usePurchaseTheme';
 
@@ -26,15 +27,18 @@ export type AvailableThemes =
 export type ThemePickerProps = { theme: AvailableThemes };
 
 export const ThemePicker = ({ theme }: ThemePickerProps) => {
+  const { user } = useAuthState();
   const { setPreviewTheme } = usePreviewTheme();
-  const { purchaseTheme } = usePurchaseTheme();
+  const { purchaseTheme, setTheme } = usePurchaseTheme();
+
+  const hasTheme = user?.availableThemes.includes(theme);
 
   const handlePreviewClick = () => {
     setPreviewTheme(theme);
   };
 
   const handleBuyClick = () => {
-    purchaseTheme(theme);
+    hasTheme ? purchaseTheme(theme) : setTheme(theme);
   };
 
   return (
@@ -59,7 +63,7 @@ export const ThemePicker = ({ theme }: ThemePickerProps) => {
               Podejrzyj
             </button>
             <button onClick={handleBuyClick} className="btn">
-              Kup teraz
+              {hasTheme ? 'Użyj' : 'Kup'}
             </button>
           </div>
         </div>
