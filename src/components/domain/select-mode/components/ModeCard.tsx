@@ -1,17 +1,11 @@
-import SinglePlayer from './SinglePlayer';
-import TwoPlayers from './TwoPlayers';
+import { ReactNode } from 'react';
 
 type ModeCardProps = {
-  modeName: string;
+  children: ReactNode;
 };
 
-const ModeCard = ({ modeName }: ModeCardProps) => {
-  return (
-    <div className="card m-4 bg-base-100 shadow-xl items-center text-center">
-      {/* <SinglePlayer /> */}
-      <TwoPlayers />
-    </div>
-  );
+const ModeCard = ({ children }: ModeCardProps) => {
+  return <div className="card m-4 bg-base-100 shadow-xl items-center text-center">{children}</div>;
 };
 
 export default ModeCard;

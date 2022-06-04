@@ -1,9 +1,12 @@
-import elf from '~/assets/heroes/elf.gif';
-
-const SinglePlayer = () => {
+type SinglePlayerProps = {
+  hero: string;
+};
+const SinglePlayer = ({ hero }: SinglePlayerProps) => {
   return (
     <>
-      <img src={elf} alt="hero" className="w-72" />
+      <div className="flex max-h-72">
+        <img src={hero} alt="hero" className="w-100 object-contain" />
+      </div>
       <div className="card-body">
         <h2 className="card-title m-0">Gotowy?</h2>
         <p>Rozpocznij misję</p>
