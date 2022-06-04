@@ -1,24 +1,35 @@
+import { SignOutButton } from '~/components/domain/auth/components/SignOutButton';
 import { User as AppUser } from '~/components/domain/auth/db/addNewUser';
-import { SearchCircleIcon } from '@heroicons/react/outline';
+import { heroImage } from '~/components/domain/select-mode/utils/heroTypes';
+import GoldGlass from '../GoldGlass';
 
 type UserInfoProps = {
   user: AppUser;
 };
 const UserInfo = ({ user }: UserInfoProps) => {
+  console.log(user);
   return (
-    <div className="justify-self-start">
-      <div className="avatar">
-        <div className="w-12 m-2 rounded-full ring ring-primary">
+    <div className="flex gap-4 items-stretch">
+      <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
+
+      <div
+        className="my-2 flex items-center tooltip tooltip-bottom px-4 border-x-2 border-accent"
+        data-tip="Twoje złote lupy"
+      >
+        <GoldGlass />
+        <h3 className="text-4xl font-bold m-0">{user.points}</h3>
+      </div>
+
+      <div className="avatar self-center">
+        <div className="w-12 h-12 rounded-full ring ring-accent">
           <img src={user.avatar} alt="user avatar" />
         </div>
       </div>
-      <div className="ml-2 flex flex-col items-start">
-        <h3 className="text-3xl m-0">{user.displayName}</h3>
-        <div className="flex gap-1 items-center tooltip tooltip-right" data-tip="Twoje złote lupy">
-          <SearchCircleIcon className="w-7" />
-          <h3 className="text-2xl font-bold m-0">{user.points}</h3>
-        </div>
-      </div>
+
+      {/* <div className="flex mt-0.5 items-start"> */}
+      <h3 className="self-center text-3xl m-0">{user.displayName}</h3>
+      <SignOutButton />
+      {/* </div> */}
     </div>
   );
 };
