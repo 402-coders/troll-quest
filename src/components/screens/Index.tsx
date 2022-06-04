@@ -1,4 +1,5 @@
 import { GoogleButton } from '../domain/auth/components/GoogleButton';
+import { SignOutButton } from '../domain/auth/components/SignOutButton';
 import Logo from '../shared/components/Logo/Logo';
 import { ShareButton } from '../shared/components/ShareButton/ShareButton';
 
@@ -15,6 +16,7 @@ function Index() {
           <Logo />
           <GoogleButton />
           <ShareButton />
+          <SignOutButton />
         </div>
       </div>
     </>
