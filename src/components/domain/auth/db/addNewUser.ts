@@ -1,6 +1,7 @@
 import { getDocument, setDocument } from '~/lib/firebase';
 import { User as FirebaseUser } from 'firebase/auth';
 import { HeroTypes } from '../../select-mode/utils/heroTypes';
+import { AvailableThemes } from '../../shop/components/ThemePicker';
 
 export type AuthUser = { displayName: string; email: string; uid: string };
 
@@ -12,6 +13,8 @@ export type User = {
   id: string;
   currentHero: HeroTypes;
   availableHeroes: HeroTypes[];
+  currentTheme: AvailableThemes;
+  availableThemes: AvailableThemes[];
 };
 
 export const addNewUser = async ({ displayName, email, uid, photoURL }: FirebaseUser) => {
@@ -25,6 +28,8 @@ export const addNewUser = async ({ displayName, email, uid, photoURL }: Firebase
       avatar: photoURL ?? '',
       points: 0,
       currentHero: 'knight',
+      currentTheme: '' as AvailableThemes,
+      availableThemes: [],
       availableHeroes: [],
       id: uid,
     };

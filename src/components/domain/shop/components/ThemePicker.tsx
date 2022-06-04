@@ -1,4 +1,5 @@
-import { useTheme } from '../hooks/useTheme';
+import { usePreviewTheme } from '../hooks/usePreviewTheme';
+import { usePurchaseTheme } from '../hooks/usePurchaseTheme';
 
 export type AvailableThemes =
   | 'light'
@@ -25,10 +26,15 @@ export type AvailableThemes =
 export type ThemePickerProps = { theme: AvailableThemes };
 
 export const ThemePicker = ({ theme }: ThemePickerProps) => {
-  const { setPreviewTheme } = useTheme();
+  const { setPreviewTheme } = usePreviewTheme();
+  const { purchaseTheme } = usePurchaseTheme();
 
   const handlePreviewClick = () => {
     setPreviewTheme(theme);
+  };
+
+  const handleBuyClick = () => {
+    purchaseTheme(theme);
   };
 
   return (
@@ -52,7 +58,9 @@ export const ThemePicker = ({ theme }: ThemePickerProps) => {
             <button className="btn btn-secondary" onClick={handlePreviewClick}>
               Podejrzyj
             </button>
-            <button className="btn">Kup teraz</button>
+            <button onClick={handleBuyClick} className="btn">
+              Kup teraz
+            </button>
           </div>
         </div>
       </div>

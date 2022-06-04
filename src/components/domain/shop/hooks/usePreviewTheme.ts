@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
+import { useAuthState } from '~/components/contexts/UserContext';
 import { AvailableThemes } from '../components/ThemePicker';
 
-export const useTheme = () => {
+export const usePreviewTheme = () => {
+  const { user } = useAuthState();
   const setPreviewTheme = (theme: AvailableThemes) => {
     const html = document.querySelector('html');
-    console.log('🚀 ~ file: useTheme.ts ~ line 6 ~ setPreviewTheme ~ html', html);
     if (html) {
       html.dataset.theme = theme;
     }
