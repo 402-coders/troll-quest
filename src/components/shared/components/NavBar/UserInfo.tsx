@@ -7,13 +7,12 @@ type UserInfoProps = {
   user: AppUser;
 };
 const UserInfo = ({ user }: UserInfoProps) => {
-  console.log(user);
   return (
     <div className="flex gap-4 items-stretch">
       <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
 
       <div
-        className="my-2 flex items-center tooltip tooltip-bottom px-4 border-x-2 border-accent"
+        className="my-2 flex items-center tooltip tooltip-accent tooltip-bottom px-4 border-x-2 border-accent"
         data-tip="Twoje złote lupy"
       >
         <GoldGlass />
@@ -32,4 +31,4 @@ const UserInfo = ({ user }: UserInfoProps) => {
   );
 };
 
-export default UserInfo;
+export { UserInfo };
