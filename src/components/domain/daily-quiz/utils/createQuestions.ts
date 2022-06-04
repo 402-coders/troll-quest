@@ -14,3 +14,5 @@ export const createQuestions = (data: DailyQuestContextValue) => {
 
   return questions;
 };
+
+export type Questions = ReturnType<typeof createQuestions>;

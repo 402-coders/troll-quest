@@ -8,6 +8,7 @@ const IndexScreen = lazy(() => import('~/components/screens/Index'));
 const Shop = lazy(() => import('~/components/screens/Shop/Shop'));
 const Page404Screen = lazy(() => import('~/components/screens/404/404'));
 const DailyQuestScreen = lazy(() => import('~/components/screens/DailyQuestPage'));
+const DailyQuestScreenSummary = lazy(() => import('~/components/screens/DailyQuestPageSummary'));
 
 const Router = () => {
   const routes: RouteObject[] = [
@@ -20,6 +21,11 @@ const Router = () => {
       path: appRoutes.dailyQuest,
       element: <NavBar />,
       children: [{ element: <DailyQuestScreen />, index: true }],
+    },
+    {
+      path: appRoutes.dailyQuestSummary,
+      element: <NavBar />,
+      children: [{ element: <DailyQuestScreenSummary />, index: true }],
     },
     {
       path: appRoutes.shop,
