@@ -1,8 +1,8 @@
 import { Dialog } from '@headlessui/react';
 import { useRef, useState } from 'react';
 import { useAuthState } from '~/components/contexts/UserContext';
-import { SignInButton } from '~/components/domain/auth/SignInButton';
-import { SignOutButton } from '~/components/domain/auth/SignOutButton';
+import { SignInButton } from '~/components/domain/auth/components/SignInButton';
+import { SignOutButton } from '~/components/domain/auth/components/SignOutButton';
 import { Head } from '~/components/shared/Head';
 
 function Index() {
