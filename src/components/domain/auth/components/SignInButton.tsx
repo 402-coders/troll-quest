@@ -5,8 +5,9 @@ export const SignInButton = () => {
   const handleClick = () => {
     const provider = new GoogleAuthProvider();
     const auth = useAuth();
+    console.log('🚀 ~ file: SignInButton.tsx ~ line 8 ~ handleClick ~ auth', auth);
     // @see https://firebase.google.com/docs/auth/web/google-signin
-    auth.languageCode = 'en';
+    auth.languageCode = 'pl';
 
     signInWithRedirect(auth, provider);
   };
