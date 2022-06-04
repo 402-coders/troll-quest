@@ -11,9 +11,8 @@ const Page404Screen = lazy(() => import('~/components/screens/404/404'));
 const Router = () => {
   const routes: RouteObject[] = [
     {
-      path: appRoutes.home,
-      element: <NavBar />,
-      children: [{ element: <IndexScreen />, index: true }],
+      path: appRoutes.signIn,
+      element: <IndexScreen />,
     },
     {
       path: appRoutes.shop,
