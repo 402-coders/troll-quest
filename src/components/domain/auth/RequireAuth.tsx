@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { appRoutes } from '~/components/router/appRoutes';
+import { Loader } from '~/components/shared/components/Loader';
 // import Page404 from '~/components/screens/404/404';
 
 type RequireAuthProps = {
@@ -12,7 +13,7 @@ const RequireAuth = ({ children }: RequireAuthProps) => {
   const { state } = useAuthState();
 
   if (state.state === 'SIGNED_OUT') return <Navigate to={appRoutes.signIn} />;
-  if (state.state === 'UNKNOWN') return <div>Loading..</div>;
+  if (state.state === 'UNKNOWN') return <Loader />;
   return state.state === 'SIGNED_IN' ? children : <Navigate to={appRoutes.signIn} />;
 };
 
