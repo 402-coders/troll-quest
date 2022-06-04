@@ -21,7 +21,6 @@ export const Game = () => {
   const handleClick = (isReal: boolean) => () => {
     if (currentQuestionIndex >= questions.length - 1) {
       const totalScore = questions.reduce((acc, current) => (current.isCorrect ? acc + 1 : acc), 0);
-      console.log('🚀 ~ file: Game.tsx ~ line 24 ~ handleClick ~ totalScore', totalScore);
       addPoints(totalScore * 10);
       navigate(appRoutes.dailyQuestSummary, { state: questions });
       return;
@@ -39,7 +38,7 @@ export const Game = () => {
       <Carousel dotPosition="bottom" ref={sliderRef}>
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
-            <div className="flex justify-around w-[80vw] m-auto">
+            <div className="flex justify-around m-auto">
               <Question header={right.title} image={right.image_url} source={right.source} onClick={handleClick} />
               <Question header={left.title} image={left.image_url} source={left.source} onClick={handleClick} />
             </div>
