@@ -9,8 +9,8 @@ import bronzeKnight from '~/assets/heroes/bronze-knight.gif'
 import warriorGrey from '~/assets/heroes/warrior-1.gif'
 import warriorGold from '~/assets/heroes/warrior-2.gif'
 import violetElf from '~/assets/heroes/elf-violet.gif'
-import { SearchCircleIcon } from '@heroicons/react/outline';
 import { ThemePicker } from '~/components/domain/shop/components/ThemePicker';
+import GoldGlass from '~/components/shared/components/GoldGlass';
 
 const Shop = () => {
   const themes = [
@@ -62,49 +62,49 @@ const Shop = () => {
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
         <img className="h-32 m-2" src={elf} />
         <p>Elf</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
         <img className="h-32 m-2" src={warrior} />
         <p>Warrior</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
         <img className="h-32 m-2" src={knight} />
         <p>Gold Knight</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
         <img className="h-32 m-2" src={redKnight} />
         <p>Silver Knight</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
         <img className="h-32 m-2" src={bronzeKnight} />
         <p>Bronze Knight</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
         <img className="h-32 m-2" src={warriorGrey} />
         <p>Bronze Warrior Women</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52  flex flex-col items-center">
         <img className="h-32 m-2" src={warriorGold} />
         <p>Warrior Women</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
         <img className="h-32 m-2" src={violetElf} />
         <p>Elf</p>
-        <SearchCircleIcon className="w-7" />
+        <GoldGlass />
         <p>5000</p>
       </div>
     </TabPanel>
