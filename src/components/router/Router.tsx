@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import { appRoutes } from './appRoutes';
 import NavBar from '../shared/components/NavBar/NavBar';
+import SelectModePage from '../screens/SelectModePage';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 const IndexScreen = lazy(() => import('~/components/screens/Index'));
@@ -12,6 +13,11 @@ const DailyQuestScreenSummary = lazy(() => import('~/components/screens/DailyQue
 
 const Router = () => {
   const routes: RouteObject[] = [
+    {
+      path: appRoutes.home,
+      element: <NavBar />,
+      children: [{ element: <SelectModePage />, index: true }],
+    },
     {
       path: appRoutes.signIn,
       element: <IndexScreen />,
