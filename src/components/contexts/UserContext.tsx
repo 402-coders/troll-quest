@@ -50,7 +50,6 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     (async () => {
       if (state.state === 'SIGNED_IN') {
         const data = await addNewUser(state.currentUser);
-        console.log('🚀 ~ file: UserContext.tsx ~ line 53 ~ data', data);
         if (data) setUser(data);
       }
     })();
