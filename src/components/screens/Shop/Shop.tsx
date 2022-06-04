@@ -4,26 +4,38 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 const Shop = () => {
 
-  const themes = ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter"]
+  const themes = ["light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "dracula", "cmyk"]
 
   return (
     <>
       <Head title={appRoutesHeaders.shop} />
+      <div className="w-4/5 mx-auto my-5 border-8 border-primary">
       <Tabs>
-    <TabList className="flex flex-row justify-around bg-secondary">
-       <Tab className="border border-primary p-5 font-black uppercase text-lg text-primary cursor-pointer">Themes</Tab>
-       <Tab className="border border-primary p-5 font-black uppercase text-lg text-primary cursor-pointer">skórki</Tab>
-       <Tab className="border border-primary p-5 font-black uppercase text-lg text-primary cursor-pointer">coś jeszcze</Tab>
+    <TabList className="flex flex-row justify-around bg-secondary p-3">
+       <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">Themes</Tab>
+       <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">skórki</Tab>
+       <Tab className="border border-primary rounded-full	 p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">coś jeszcze</Tab>
     </TabList>
 
-    <TabPanel className="flex flex-row justify-around flex-wrap">
+    <TabPanel className="h-4/5 flex flex-row justify-around flex-wrap">
       {themes.map(theme => (
-        <div data-theme="aqua" key={theme} className="m-5 card w-56 bg-primary text-primary-content">
-        <div data-theme="aqua" className="card-body">
+        <div data-theme={theme} key={theme} className="m-5 card w-56 bg-primary text-primary-content">
+        <div className="card-body">
           <h2 className="card-title">{theme}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
           <div className="card-actions justify-end">
-          <button className="btn">Buy Now</button>
+            <div className="bg-primary flex aspect-square w-5 items-center justify-center rounded lg:w-6">
+            <p className="text-primary-content">A</p>
+            </div>
+            <div className="bg-secondary flex aspect-square w-5 items-center justify-center rounded lg:w-6">
+            <p className="text-secondary-content">A</p>
+            </div>
+            <div className="bg-accent flex aspect-square w-5 items-center justify-center rounded lg:w-6">
+            <p className="text-accent-content">A</p>
+            </div>
+            <div className="bg-neutral flex aspect-square w-5 items-center justify-center rounded lg:w-6">
+            <p className="text-neutral-content">A</p>
+            </div>
+          <button className="btn">Kup teraz</button>
         </div>
       </div>
     </div>
@@ -41,6 +53,7 @@ const Shop = () => {
     
     
   </Tabs>
+  </div>
     </>
   );
 };
