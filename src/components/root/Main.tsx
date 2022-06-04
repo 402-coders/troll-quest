@@ -1,16 +1,15 @@
-import { Router } from "~/components/router/Router";
-import { setupFirebase } from "~/lib/firebase";
-import { useEffect } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useSignIn, useSignOut } from "~/components/contexts/UserContext";
+import { Router } from '~/components/router/Router';
+import { useEffect } from 'react';
+import { useSignIn, useSignOut } from '~/components/contexts/UserContext';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { firebaseApp } from '~/lib/firebase';
+import { BrowserRouter } from 'react-router-dom';
 
 function Main() {
   const { signIn } = useSignIn();
   const { signOut } = useSignOut();
   useEffect(() => {
-    setupFirebase();
-
-    const auth = getAuth();
+    const auth = getAuth(firebaseApp);
 
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -22,7 +21,9 @@ function Main() {
   }, []);
   return (
     <main>
-      <Router />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </main>
   );
 }
