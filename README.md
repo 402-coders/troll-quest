@@ -1,7 +1,7 @@
 # Troll Quest
 
 ## Demo
-https://trollquest.netlify.app
+trollslayer.netlify.app
 
 ## Motivation
 

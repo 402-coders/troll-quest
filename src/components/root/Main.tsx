@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useSignIn, useSignOut } from '~/components/contexts/UserContext';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firebaseApp } from '~/lib/firebase';
+import { BrowserRouter } from 'react-router-dom';
 
 function Main() {
   const { signIn } = useSignIn();
@@ -20,7 +21,9 @@ function Main() {
   }, []);
   return (
     <main>
-      <Router />
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </main>
   );
 }
