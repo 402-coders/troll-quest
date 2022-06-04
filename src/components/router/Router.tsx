@@ -13,9 +13,8 @@ const DailyQuestScreenSummary = lazy(() => import('~/components/screens/DailyQue
 const Router = () => {
   const routes: RouteObject[] = [
     {
-      path: appRoutes.home,
-      element: <NavBar />,
-      children: [{ element: <IndexScreen />, index: true }],
+      path: appRoutes.signIn,
+      element: <IndexScreen />,
     },
     {
       path: appRoutes.dailyQuest,
