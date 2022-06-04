@@ -3,18 +3,19 @@ import { User as FirebaseUser } from 'firebase/auth';
 
 export type AuthUser = { displayName: string; email: string; uid: string };
 
-export type User = { displayName: string; email: string; points: number; avatar: string };
+export type User = { displayName: string; email: string; points: number; avatar: string; id: string };
 
 export const addNewUser = async ({ displayName, email, uid, photoURL }: FirebaseUser) => {
   try {
     const user = await getDocument<User>('users', uid);
-    // if (user.exists()) return user.data();
+    if (user.exists()) return user.data();
 
     const data = {
       email: email ?? '',
       displayName: displayName ?? '',
       avatar: photoURL ?? '',
       points: 0,
+      id: uid,
     };
 
     await setDocument('users', uid, data);

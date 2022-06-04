@@ -1,6 +1,6 @@
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { getAuth, Auth, connectAuthEmulator } from 'firebase/auth';
-import { addDoc, collection, doc, DocumentSnapshot, getDoc, getFirestore, setDoc } from 'firebase/firestore';
+import { addDoc, collection, doc, DocumentSnapshot, getDoc, getFirestore, setDoc, updateDoc } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
 export const firebaseApp = initializeApp({
@@ -35,6 +35,12 @@ export const setDocument = (collection: Collection, id: string, data: unknown) =
 
 export const addDocument = (collectionName: Collection, data: unknown) => {
   return addDoc(collection(db, collectionName), data);
+};
+
+export const updateDocument = (collection: Collection, id: string, data: any) => {
+  const ref = doc(db, collection, id);
+
+  return updateDoc(ref, data);
 };
 
 export const getDocument = async <T extends unknown>(collection: Collection, id: string) => {
