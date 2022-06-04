@@ -9,6 +9,7 @@ import { appRoutes } from '~/components/router/appRoutes';
 import { useNavigate } from 'react-router-dom';
 import { Monster } from './Monster';
 import { useAddPoints } from '../db/addPoints';
+import { Hero } from '~/components/shared/components/Hero';
 
 export const Game = () => {
   const sliderRef = useRef<CarouselRef>(null);
@@ -33,8 +34,11 @@ export const Game = () => {
   };
 
   return (
-    <div className="w-100 mx-auto">
-      <Monster />
+    <div className="w-full justify-center">
+      <div className="flex justify-around">
+        <Monster />
+        <Hero />
+      </div>
       <Carousel dotPosition="bottom" ref={sliderRef}>
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
