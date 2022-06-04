@@ -7,6 +7,8 @@ import { CarouselRef } from 'antd/lib/carousel';
 import { Carousel } from 'antd';
 import { appRoutes } from '~/components/router/appRoutes';
 import { useNavigate } from 'react-router-dom';
+import { Monster } from './Monster';
+import { useAddPoints } from '../db/addPoints';
 
 export const Game = () => {
   const sliderRef = useRef<CarouselRef>(null);
@@ -14,9 +16,12 @@ export const Game = () => {
   const questions = useMemo(() => createQuestions(data), []);
   const [currentQuestionIndex, setcurrentQuestionIndex] = useState(0);
   const navigate = useNavigate();
+  const { addPoints } = useAddPoints();
 
   const handleClick = (isReal: boolean) => () => {
     if (currentQuestionIndex >= questions.length - 1) {
+      const totalScore = questions.reduce((acc, current) => (current.isCorrect ? acc + 1 : acc), 0);
+      addPoints(totalScore * 10);
       navigate(appRoutes.dailyQuestSummary, { state: questions });
       return;
     }
@@ -28,11 +33,12 @@ export const Game = () => {
   };
 
   return (
-    <div className="w-100">
-      <Carousel dotPosition="top" ref={sliderRef}>
+    <div className="w-100 mx-auto">
+      <Monster />
+      <Carousel dotPosition="bottom" ref={sliderRef}>
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
-            <div className="flex justify-around w-[80vw] m-auto">
+            <div className="flex justify-around m-auto">
               <Question header={right.title} image={right.image_url} source={right.source} onClick={handleClick} />
               <Question header={left.title} image={left.image_url} source={left.source} onClick={handleClick} />
             </div>

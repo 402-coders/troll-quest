@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useContext, useEffect, useReducer, useState } from 'react';
 import { User } from 'firebase/auth';
 import { addNewUser, User as AppUser } from '../domain/auth/db/addNewUser';
+import { doc, onSnapshot } from 'firebase/firestore';
+import { db } from '~/lib/firebase';
 
 type AuthActions = { type: 'SIGN_IN'; payload: { user: User } } | { type: 'SIGN_OUT' };
 
@@ -50,7 +52,11 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
     (async () => {
       if (state.state === 'SIGNED_IN') {
         const data = await addNewUser(state.currentUser);
+        const userRef = doc(db, 'users', state.currentUser.uid);
         if (data) setUser(data);
+        onSnapshot(userRef, (doc) => {
+          setUser((doc.data() as AppUser) ?? null);
+        });
       }
     })();
   }, [state]);

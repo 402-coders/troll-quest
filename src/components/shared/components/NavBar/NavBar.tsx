@@ -7,6 +7,7 @@ import UserInfo from './UserInfo';
 
 function NavBar() {
   const { user } = useAuthState();
+  console.log('🚀 ~ file: NavBar.tsx ~ line 10 ~ NavBar ~ user', user);
 
   return (
     <RequireAuth>
