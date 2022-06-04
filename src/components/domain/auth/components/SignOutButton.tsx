@@ -9,7 +9,7 @@ export const SignOutButton = (props: Props) => {
   };
 
   return (
-    <button onClick={handleClick} className="btn btn-link">
+    <button onClick={handleClick} className="btn btn-outline">
       Wyloguj się
     </button>
   );
