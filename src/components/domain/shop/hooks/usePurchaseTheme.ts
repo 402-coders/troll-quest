@@ -21,5 +21,17 @@ export const usePurchaseTheme = () => {
     }
   };
 
-  return { purchaseTheme };
+  const setTheme = async (theme: AvailableThemes) => {
+    if (!user) return;
+
+    try {
+      await updateDocument('users', user.id, {
+        currentTheme: theme,
+      });
+    } catch (error) {
+      console.log('🚀 ~ file: usePurchaseTheme.ts ~ line 20 ~ purchaseTheme ~ error', error);
+    }
+  };
+
+  return { purchaseTheme, setTheme };
 };
