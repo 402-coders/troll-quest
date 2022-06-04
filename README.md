@@ -1,6 +1,7 @@
-# ⚡ vite-react-ts-tailwind-starter
+# Troll Quest
 
-Starter using Vite + React + TypeScript + Tailwind with Firebase.
+## Demo
+https://trollquest.netlify.app
 
 ## Motivation
 
