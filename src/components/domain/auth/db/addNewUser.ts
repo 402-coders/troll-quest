@@ -1,20 +1,31 @@
 import { getDocument, setDocument } from '~/lib/firebase';
 import { User as FirebaseUser } from 'firebase/auth';
+import { HeroTypes } from '../../select-mode/utils/heroTypes';
 
 export type AuthUser = { displayName: string; email: string; uid: string };
 
-export type User = { displayName: string; email: string; points: number; avatar: string; id: string };
+export type User = {
+  displayName: string;
+  email: string;
+  points: number;
+  avatar: string;
+  id: string;
+  currentHero: HeroTypes;
+  availableHeroes: HeroTypes[];
+};
 
 export const addNewUser = async ({ displayName, email, uid, photoURL }: FirebaseUser) => {
   try {
     const user = await getDocument<User>('users', uid);
     if (user.exists()) return user.data();
 
-    const data = {
+    const data: User = {
       email: email ?? '',
       displayName: displayName ?? '',
       avatar: photoURL ?? '',
       points: 0,
+      currentHero: 'knight',
+      availableHeroes: [],
       id: uid,
     };
 
