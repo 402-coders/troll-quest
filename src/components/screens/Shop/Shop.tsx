@@ -1,6 +1,8 @@
 import { appRoutesHeaders } from '~/components/router/appRoutes';
 import { Head } from '~/components/shared/components/Head/Head';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import elf from '~/assets/heroes/elf.gif'
+import { SearchCircleIcon } from '@heroicons/react/outline';
 
 const Shop = () => {
 
@@ -45,7 +47,21 @@ const Shop = () => {
 
     </TabPanel>
     <TabPanel>
-      skórki
+      <div className="border-5 border-black w-36 flex flex-col items-center">
+        <img src={elf} />
+        <p>Elf</p>
+        <SearchCircleIcon className="w-7" />
+      </div>
+      <div className="border-5 border-black w-36 flex flex-col items-center">
+        <img src={elf} />
+        <p>Elf</p>
+        <SearchCircleIcon className="w-7" />
+      </div>
+      <div className="border-5 border-black w-36 flex flex-col items-center">
+        <img src={elf} />
+        <p>Elf</p>
+        <SearchCircleIcon className="w-7" />
+      </div>
     </TabPanel>
     <TabPanel>
     coś jeszcze
