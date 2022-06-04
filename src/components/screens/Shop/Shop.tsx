@@ -43,13 +43,13 @@ const Shop = () => {
         <Tabs>
           <TabList className="flex flex-row justify-around bg-secondary p-3">
             <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
-              Themes
+              Motywy
             </Tab>
             <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
               skórki
             </Tab>
             <Tab className="border border-primary rounded-full	 p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
-              coś jeszcze
+              tryby
             </Tab>
           </TabList>
 
@@ -108,7 +108,7 @@ const Shop = () => {
         <p>5000</p>
       </div>
     </TabPanel>
-          <TabPanel>coś jeszcze</TabPanel>
+          <TabPanel>Tryby</TabPanel>
         </Tabs>
       </div>
       </>
