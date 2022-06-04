@@ -7,7 +7,6 @@ type UserInfoProps = {
   user: AppUser;
 };
 const UserInfo = ({ user }: UserInfoProps) => {
-  console.log(user);
   return (
     <div className="flex gap-4 items-stretch">
       <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
