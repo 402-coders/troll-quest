@@ -8,6 +8,9 @@ function NavBar() {
         <Link to={appRoutes.home} className="btn btn-ghost normal-case text-xl">
           Start
         </Link>
+        <Link to={appRoutes.dailyQuest} className="btn btn-ghost normal-case text-xl">
+          Quiz
+        </Link>
         <Link to={appRoutes.shop} className="btn btn-ghost normal-case text-xl">
           Sklep
         </Link>
