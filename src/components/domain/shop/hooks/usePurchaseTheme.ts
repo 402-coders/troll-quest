@@ -10,10 +10,6 @@ export const usePurchaseTheme = () => {
   const purchaseTheme = async (theme: AvailableThemes) => {
     if (!user || themePrice > user.points) return;
 
-    const html = document.querySelector('html');
-    if (html) {
-      html.dataset.theme = theme;
-    }
     try {
       await updateDocument('users', user.id, {
         points: increment(-themePrice),
@@ -21,7 +17,7 @@ export const usePurchaseTheme = () => {
         availableThemes: arrayUnion(theme),
       });
     } catch (error) {
-      console.log('🚀 ~ file: addPoints.ts ~ line 15 ~ addPoints ~ error', error);
+      console.log('🚀 ~ file: usePurchaseTheme.ts ~ line 20 ~ purchaseTheme ~ error', error);
     }
   };
 

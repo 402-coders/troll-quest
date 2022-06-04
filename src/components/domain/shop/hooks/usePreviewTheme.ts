@@ -11,16 +11,5 @@ export const usePreviewTheme = () => {
     }
   };
 
-  useEffect(() => {
-    return () => {
-      if (user) {
-        const html = document.querySelector('html');
-        if (html) {
-          html.dataset.theme = user.currentTheme;
-        }
-      }
-    };
-  }, []);
-
   return { setPreviewTheme };
 };

@@ -2,11 +2,13 @@ import { Link, Outlet } from 'react-router-dom';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { SignOutButton } from '~/components/domain/auth/components/SignOutButton';
 import { RequireAuth } from '~/components/domain/auth/RequireAuth';
+import { useDefaultTheme } from '~/components/domain/shop/hooks/useDefaultTheme';
 import { appRoutes } from '../../../router/appRoutes';
 import UserInfo from './UserInfo';
 
 function NavBar() {
   const { user } = useAuthState();
+  useDefaultTheme();
 
   return (
     <RequireAuth>
