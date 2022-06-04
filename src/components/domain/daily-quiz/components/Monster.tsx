@@ -1,9 +1,11 @@
+import monsterPath from 'assets/troll/troll-idle.gif';
+
 export type MonsterProps = {};
 
 export const Monster = ({}: MonsterProps) => {
   return (
     <>
-      <img width="40%" src="../../../assets/main-page-troll.gif" alt="" />
+      <img className="w-72 object-contain" src={monsterPath} alt="" />
     </>
   );
 };
