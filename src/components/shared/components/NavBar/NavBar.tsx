@@ -7,12 +7,11 @@ import UserInfo from './UserInfo';
 
 function NavBar() {
   const { user } = useAuthState();
-  console.log('🚀 ~ file: NavBar.tsx ~ line 10 ~ NavBar ~ user', user);
 
   return (
     <RequireAuth>
       <>
-        <nav className="navbar bg-secondary justify-between px-3 ">
+        <nav className="navbar bg-secondary justify-between px-3 mb-8">
           {user ? <UserInfo user={user} /> : null}
           <Link to={appRoutes.home} className="btn btn-ghost normal-case text-xl">
             Start
