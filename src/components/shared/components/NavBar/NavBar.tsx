@@ -11,16 +11,13 @@ function NavBar() {
   return (
     <RequireAuth>
       <>
-        <nav className="navbar bg-secondary justify-between px-3 mb-8">
+        <nav className="navbar h-20 bg-secondary justify-between px-3 mb-8">
           {user ? <UserInfo user={user} /> : null}
           <Link to={appRoutes.home} className="btn btn-ghost normal-case text-xl">
             Start
           </Link>
           <Link to={appRoutes.shop} className="btn btn-ghost normal-case text-xl">
             Sklep
-          </Link>
-          <Link to={appRoutes.dailyQuest} className="btn btn-ghost normal-case text-xl">
-            Quiz
           </Link>
           <SignOutButton />
         </nav>

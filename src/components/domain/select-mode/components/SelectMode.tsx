@@ -7,13 +7,15 @@ import TwoPlayers from './modes/TwoPlayers';
 
 const SelectMode = () => {
   return (
-    <div className="flex">
-      <ModeCard>
-        <SinglePlayer hero={heroImage['elf']} />
-      </ModeCard>
-      <ModeCard>
-        <TwoPlayers hero1={heroImage.elf} hero2={heroImage.knight} />
-      </ModeCard>
+    <div className="flex h-5/6 flex-wrap justify-center content-center m-auto max-w-screen-xl">
+      <div className="flex">
+        <ModeCard>
+          <SinglePlayer hero={heroImage['elf']} />
+        </ModeCard>
+        <ModeCard>
+          <TwoPlayers hero1={heroImage.elf} hero2={heroImage.knight} />
+        </ModeCard>
+      </div>
       <ModeCard>
         <Party hero1={heroImage.elf} hero2={heroImage.knight} hero3={heroImage.warrior} />
       </ModeCard>

@@ -1,11 +1,17 @@
+import { Navigate } from 'react-router-dom';
+import { useAuthState } from '../contexts/UserContext';
 import { GoogleButton } from '../domain/auth/components/GoogleButton';
 import { SignOutButton } from '../domain/auth/components/SignOutButton';
+import { appRoutes } from '../router/appRoutes';
+import { Loader } from '../shared/components/Loader';
 import Logo from '../shared/components/Logo/Logo';
 import { ShareButton } from '../shared/components/ShareButton/ShareButton';
 
 function Index() {
-  // const { state } = useAuthState();
-  // const [isOpen, setIsOpen] = useState(true);
+  const { state } = useAuthState();
+
+  if (state.state === 'UNKNOWN') return <Loader />;
+  if (state.state === 'SIGNED_IN') return <Navigate to={appRoutes.home} />;
 
   return (
     <>
