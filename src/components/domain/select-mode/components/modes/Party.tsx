@@ -12,7 +12,7 @@ const Party = ({ hero1, hero2, hero3 }: PartyProps) => {
         <img src={hero3} alt="hero" className="w-1/3 object-contain" />
       </div>
 
-      <div className="card-body">
+      <div className="card-body justify-end">
         <h2 className="card-title m-0">Wszyscy na wszystkich!</h2>
         <p>Zacznijmy rozróbę</p>
         <button className="btn btn-primary mt-4">Tryb impreza</button>
