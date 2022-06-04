@@ -14,6 +14,9 @@ function NavBar() {
           <Link to={appRoutes.shop} className="btn btn-ghost normal-case text-xl">
             Sklep
           </Link>
+          <Link to={appRoutes.dailyQuest} className="btn btn-ghost normal-case text-xl">
+            Quiz
+          </Link>
           <SignOutButton />
         </nav>
         <Outlet />
