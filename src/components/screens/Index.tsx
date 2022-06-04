@@ -11,7 +11,7 @@ function Index() {
       {/* <Head title="TOP PAGE" /> */}
       <div className="w-screen h-screen grid grid-cols-2 grid-rows-1 min-h-screen bg-secondary m-0">
         <img className="object-cover h-full w-full" src="../../../assets/main-page-troll.gif" alt="" />
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col space-y-10 justify-center items-center">
           <Logo />
           <GoogleButton />
           <ShareButton />
