@@ -6,7 +6,6 @@ export const useAddPoints = () => {
   const { user } = useAuthState();
 
   const addPoints = async (points: number) => {
-    console.log('🚀 ~ file: addPoints.ts ~ line 10 ~ addPoints ~ user', user);
     if (!user) return;
 
     try {
