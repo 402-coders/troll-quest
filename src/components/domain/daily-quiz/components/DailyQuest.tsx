@@ -7,6 +7,8 @@ import { getFakeNews, getRealNews } from '../api/news';
 import { mockData } from '../api/mockData';
 import { Loader } from '~/components/shared/components/Loader';
 import { Game } from './Game';
+import { appRoutesHeaders } from '~/components/router/appRoutes';
+import { Head } from '~/components/shared/components/Head/Head';
 
 export const DailyQuest = ({}: DailyQuestProps) => {
   const [data, setData] = useDailyQuestContext();
@@ -38,6 +40,7 @@ export const DailyQuest = ({}: DailyQuestProps) => {
 export const DailyQuestPage = () => {
   return (
     <DailyQuestContextProvider>
+      <Head title={appRoutesHeaders.dailyQuest} />
       <DailyQuest />
     </DailyQuestContextProvider>
   );

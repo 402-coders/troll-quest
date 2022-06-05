@@ -1,4 +1,6 @@
 import { Location, useLocation } from 'react-router-dom';
+import { appRoutesHeaders } from '~/components/router/appRoutes';
+import { Head } from '~/components/shared/components/Head/Head';
 import { Header } from '~/components/shared/components/Header';
 import { Questions } from '../utils/createQuestions';
 import { QuestionSummary } from './QuestionSummary';
@@ -12,6 +14,7 @@ export const DailyQuestSummary = ({}: DailyQuestSummaryProps) => {
 
   return (
     <div className="justify-content flex-col flex w-100 mt-8">
+      <Head title={appRoutesHeaders.dailyQuestSummary} />
       <Header>Odpowiedziałeś poprawnie na: {totalScore}</Header>
       <span className="text-center text-2xl mt-4">Dostajesz {totalScore * 10} złotych lup</span>
       <div className="flex gap-4 w-full mt-5">
