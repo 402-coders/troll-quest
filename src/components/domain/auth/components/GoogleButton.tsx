@@ -17,7 +17,7 @@ export const GoogleButton = () => {
       className="font-black text-lg rounded-full uppercase text-secondary bg-primary focus:ring-4 focus:outline-none  shadow-lg px-7 py-5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 mr-2 mb-2"
     >
       <svg
-        className="w-4 h-4 mr-2 -ml-1"
+        className="w-4 h-4 mr-4 -ml-1"
         aria-hidden="true"
         focusable="false"
         data-prefix="fab"

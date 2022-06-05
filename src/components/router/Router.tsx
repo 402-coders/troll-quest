@@ -4,6 +4,7 @@ import { appRoutes } from './appRoutes';
 import NavBar from '../shared/components/NavBar/NavBar';
 import SelectModePage from '../screens/SelectModePage';
 import { Loader } from '../shared/components/Loader';
+import { Leaderboard } from '../screens/Leaderboard';
 
 const IndexScreen = lazy(() => import('~/components/screens/Index'));
 const Shop = lazy(() => import('~/components/screens/Shop/Shop'));
@@ -45,6 +46,11 @@ const Router = () => {
       children: [{ element: <DailyQuestScreenSummary />, index: true }],
     },
 
+    {
+      path: appRoutes.leaderboard,
+      element: <NavBar />,
+      children: [{ element: <Leaderboard />, index: true }],
+    },
     {
       path: appRoutes.shop,
       element: <NavBar />,

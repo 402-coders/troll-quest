@@ -12,7 +12,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
       <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
 
       <div
-        className="my-2 flex items-center tooltip tooltip-bottom px-4 border-x-2 border-accent"
+        className="my-2 flex items-center tooltip tooltip-accent tooltip-bottom px-4 border-x-2 border-accent"
         data-tip="Twoje złote lupy"
       >
         <GoldGlass />
@@ -25,12 +25,10 @@ const UserInfo = ({ user }: UserInfoProps) => {
         </div>
       </div>
 
-      {/* <div className="flex mt-0.5 items-start"> */}
       <h3 className="self-center text-3xl m-0">{user.displayName}</h3>
       <SignOutButton />
-      {/* </div> */}
     </div>
   );
 };
 
-export default UserInfo;
+export { UserInfo };

@@ -9,6 +9,7 @@ export const appRoutes = {
   dailyQuestSummary: '/daily-quest-summary',
   party: '/party/:gameName',
   partySummary: '/party-summary/:gameName',
+  leaderboard: '/leaderboard',
 };
 
 export const appRoutesHeaders = {
@@ -22,5 +23,6 @@ export const appRoutesHeaders = {
   dailyQuestSummary: 'CODZIENNY QUIZ - Podsumowanie',
   party: 'IMPREZA',
   partySummary: 'IMPREZA - Podsumowanie',
+  leaderboard: 'LEADERBOARD',
   error: '404',
 };
