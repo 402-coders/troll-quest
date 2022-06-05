@@ -5,6 +5,7 @@ import { appRoutes, appRoutesHeaders } from '../router/appRoutes';
 import { Head } from '../shared/components/Head/Head';
 import { Loader } from '../shared/components/Loader';
 import { ShareButton } from '../shared/components/ShareButton/ShareButton';
+import { ReportButton } from '../shared/components/ReportButton';
 import trollWalk from '~/assets/troll/troll-walk.gif';
 import logo from '~/assets/Logo.png';
 
@@ -23,6 +24,8 @@ function Index() {
           <img src={logo} alt="logo" />
           <GoogleButton />
           <ShareButton />
+          <ReportButton />
+
         </div>
       </div>
     </>
