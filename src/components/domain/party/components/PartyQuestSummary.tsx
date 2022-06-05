@@ -3,10 +3,12 @@ import { Leaderboard } from './Leaderboard';
 import { QRCodeSVG } from 'qrcode.react';
 import { appRoutesHeaders } from '~/components/router/appRoutes';
 import { Head } from '~/components/shared/components/Head/Head';
+import { useCopyToClipboard } from 'react-use';
 
 export type PartyQuestSummaryProps = {};
 
 export const PartyQuestSummary = ({}: PartyQuestSummaryProps) => {
+  const [, copyToClipboard] = useCopyToClipboard();
   const joinGamePath = window.location.href.replace('party-summary', 'party');
 
   return (
@@ -14,7 +16,15 @@ export const PartyQuestSummary = ({}: PartyQuestSummaryProps) => {
       <Head title={appRoutesHeaders.partySummary} />
       <Header>Dołącz do imprezy: </Header>
       <span className="text-2xl font-bold text-center w-full">
-        <a target="_blank" href={joinGamePath} rel="noreferrer">
+        <a
+          target="_blank"
+          href={joinGamePath}
+          rel="noreferrer"
+          onClick={(e) => {
+            e.preventDefault();
+            copyToClipboard(joinGamePath);
+          }}
+        >
           {joinGamePath}
         </a>
       </span>

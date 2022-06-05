@@ -11,7 +11,7 @@ export const useGameUser = () => {
   const { user } = useAuthState();
   const gameName = useGameName();
   const collectionPath = `games/${gameName}/users` as any;
-  const [gameUser, isLoading] = useDocumentData<GameUser>(doc(collection(db, collectionPath), user!.id) as any);
+  const [gameUser, isLoading] = useDocumentData<GameUser>(doc(collection(db, collectionPath), user?.id ?? '') as any);
 
   return { gameUser, isLoading };
 };

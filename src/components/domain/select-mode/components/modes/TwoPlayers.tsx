@@ -11,9 +11,9 @@ const TwoPlayers = ({ hero1, hero2 }: TwoPlayersProps) => {
       </div>
 
       <div className="card-body justify-end">
-        <h2 className="card-title m-0">Zmierz się z przeciwnikiem!</h2>
+        <h2 className="card-title m-0">Wyzwij znajomego na pojedynek o tytuł pogromcy trolli!</h2>
         <p>Rozpocznij misję</p>
-        <button className="btn btn-primary mt-4">Dwóch graczy</button>
+        <button className="btn btn-disabled mt-4">Już wkrótce</button>
       </div>
     </>
   );
