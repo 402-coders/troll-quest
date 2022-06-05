@@ -2,6 +2,7 @@ import { getDocument, setDocument } from '~/lib/firebase';
 import { User as FirebaseUser } from 'firebase/auth';
 import { HeroTypes } from '../../select-mode/utils/heroTypes';
 import { AvailableThemes } from '../../shop/components/ThemePicker';
+import { shuffle } from 'lodash';
 
 export type AuthUser = { displayName: string; email: string; uid: string };
 
@@ -17,6 +18,8 @@ export type User = {
   availableThemes: AvailableThemes[];
 };
 
+const randomHero = shuffle(['elf', 'knight', 'warrior'] as const)[0];
+
 export const addNewUser = async ({ displayName, email, uid, photoURL }: FirebaseUser) => {
   try {
     const user = await getDocument<User>('users', uid);
@@ -27,7 +30,7 @@ export const addNewUser = async ({ displayName, email, uid, photoURL }: Firebase
       displayName: displayName ?? '',
       avatar: photoURL ?? '',
       points: 0,
-      currentHero: 'knight',
+      currentHero: randomHero ?? 'knight',
       currentTheme: '' as AvailableThemes,
       availableThemes: [],
       availableHeroes: [],
