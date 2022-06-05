@@ -31,6 +31,7 @@ export const Leaderboard = () => {
                     <GoldGlass />
                 </div>
             </div>
+            
            ) )}
        </div>
     </div>
