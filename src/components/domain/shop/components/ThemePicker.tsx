@@ -38,7 +38,7 @@ export const ThemePicker = ({ theme }: ThemePickerProps) => {
   };
 
   const handleBuyClick = () => {
-    hasTheme ? purchaseTheme(theme) : setTheme(theme);
+    !hasTheme ? purchaseTheme(theme) : setTheme(theme);
   };
 
   return (
