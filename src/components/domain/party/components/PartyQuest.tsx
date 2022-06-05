@@ -13,6 +13,7 @@ export const PartyQuest = ({}: PartyQuestProps) => {
 
   if (isLoading) return <Loader />;
   if (!game?.questions) return <Loader />;
+  console.log('🚀 ~ file: PartyQuest.tsx ~ line 16 ~ PartyQuest ~ game?.questions', game?.questions);
 
   return <Game questions={game.questions} />;
 };
