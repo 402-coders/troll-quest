@@ -18,14 +18,17 @@ function Index() {
   return (
     <>
       <Head title={appRoutesHeaders.signIn} />
-      <div className="w-screen h-screen flex mobile:flex-col mobile: bg-secondary mobile:justify-center mobile:pl-12">
-        <img className="object-cover self-center justify-self-center w-11/12" src={trollWalk} alt="walking troll" />
+      <div className="w-screen h-screen flex justify-center mob:flex-col bg-secondary mob:justify-center mob:pl-12">
+        <img
+          className="object-cover self-center justify-self-center w-2/3 max-w-6xl mob:mb-10"
+          src={trollWalk}
+          alt="walking troll"
+        />
         <div className="flex flex-col space-y-10 justify-center items-center mr-16">
           <img src={logo} alt="logo" />
           <GoogleButton />
           <ShareButton />
           <ReportButton />
-
         </div>
       </div>
     </>

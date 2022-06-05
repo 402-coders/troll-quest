@@ -12,7 +12,6 @@ type RequireAuthProps = {
 
 const RequireAuth = ({ children }: RequireAuthProps) => {
   const { state } = useAuthState();
-  console.log('🚀 ~ file: RequireAuth.tsx ~ line 15 ~ RequireAuth ~ state', state);
 
   if (state.state === 'SIGNED_OUT') return <Index />;
   if (state.state === 'UNKNOWN') return <Loader />;
