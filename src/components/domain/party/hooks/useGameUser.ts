@@ -3,10 +3,9 @@ import { useDocumentData } from 'react-firebase-hooks/firestore';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { db } from '~/lib/firebase';
 import { User } from '../../auth/db/addNewUser';
-import { Game } from '../db/createParty';
 import { useGameName } from './useGameName';
 
-export type GameUser = User & { score: number; hasFinished: boolean };
+export type GameUser = User & { score: number; hasFinished: boolean; startTime: number; endTime: number };
 
 export const useGameUser = () => {
   const { user } = useAuthState();
