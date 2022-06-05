@@ -1,12 +1,9 @@
-import { useMemo, useRef, useState } from 'react';
-import { usePartyQuestContext } from '../contexts/PartyQuestContext';
-import { createQuestions, Questions } from '../utils/createQuestions';
+import { useState } from 'react';
+import { Questions } from '../utils/createQuestions';
 import { Question } from './Question';
-import 'antd/dist/antd.css';
-import { CarouselRef } from 'antd/lib/carousel';
-import { Carousel } from 'antd';
+
 import { appRoutes } from '~/components/router/appRoutes';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { Monster } from './Monster';
 import { useAddPoints } from '../db/addPoints';
 import { Hero } from '~/components/shared/components/Hero';
@@ -14,14 +11,13 @@ import { useGameName } from '../hooks/useGameName';
 import { updateDocument } from '~/lib/firebase';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { useGameUser } from '../hooks/useGameUser';
-import { Navigate } from 'react-router-dom';
+import Carousel from 'react-material-ui-carousel';
 
 export type GameProps = {
   questions: Questions;
 };
 
 export const Game = ({ questions }: GameProps) => {
-  const sliderRef = useRef<CarouselRef>(null);
   const gameName = useGameName();
   const { gameUser } = useGameUser();
   const [currentQuestionIndex, setcurrentQuestionIndex] = useState(0);
@@ -41,7 +37,6 @@ export const Game = ({ questions }: GameProps) => {
       addPoints(10);
     }
 
-    sliderRef.current?.next();
     setcurrentQuestionIndex((current) => current + 1);
   };
 
@@ -49,14 +44,21 @@ export const Game = ({ questions }: GameProps) => {
 
   return (
     <div className="w-full justify-center">
-      <div className="flex justify-around">
+      <div className="flex justify-center gap-4 mt-10">
         <Monster />
         <Hero />
       </div>
-      <Carousel dotPosition="bottom" ref={sliderRef}>
+      <Carousel
+        className="!overflow-visible"
+        index={currentQuestionIndex}
+        navButtonsAlwaysInvisible
+        autoPlay={false}
+        animation="slide"
+        indicators={false}
+      >
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
-            <div className="flex justify-around m-auto">
+            <div className="flex justify-evenly py-10 max-w-screen-2xl m-auto">
               <Question header={right.title} image={right.image_url} source={right.source} onClick={handleClick} />
               <Question header={left.title} image={left.image_url} source={left.source} onClick={handleClick} />
             </div>
