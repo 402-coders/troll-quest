@@ -15,17 +15,19 @@ export const Leaderboard = () => {
         <Header>Leaderboard</Header>
         <div className="flex flex-col items-center">
             {users?.map((user, idx )=> (
-                <div key={idx} className="mt-10 card w-1/2 h-20 shadow-sm flex flex-row justify-around items-center border-2">
+                <div key={idx} className="mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
+                    <p>{idx+1}</p>
                    <div className="avatar self-center">
-                <div className="w-12 h-12 rounded-full">
-                <img src={user.avatar} alt="user avatar" />
-            </div>
-        </div>
-                <p className="w-5">{user.displayName}</p>
+                       
+                        <div className="w-12 h-12 rounded-full">
+                             <img src={user.avatar} alt="user avatar" />
+                        </div>
+                    </div>
+                <p className="w-12 text-center font-black">{user.displayName}</p>
                 <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
                 
                 <div className="flex">
-                    <p className="m-2 text-lg font-black">{user.points}</p>
+                    <p className="w-10 m-2 text-lg font-black">{user.points}</p>
                     <GoldGlass />
                 </div>
             </div>
