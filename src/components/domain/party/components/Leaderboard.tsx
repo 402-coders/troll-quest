@@ -38,7 +38,7 @@ export const Leaderboard = ({}: LeaderboardProps) => {
           .map((user) => (
             <div
               key={user.id}
-              className="mt-10 card w-1/2 h-20 shadow-sm flex flex-row justify-around items-center border-2"
+              className="mt-10 card w-1/2 mob:w-screen h-20 shadow-sm flex flex-row justify-around items-center border-2"
             >
               <div className="avatar self-center">
                 <div className="w-12 h-12 rounded-full">
