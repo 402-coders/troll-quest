@@ -6,7 +6,7 @@ import { User } from '../../auth/db/addNewUser';
 import { Game } from '../db/createParty';
 import { useGameName } from './useGameName';
 
-export type GameUser = User & { score: number; hasFinished: boolean };
+export type GameUser = User & { score: number; hasFinished: boolean; startTime: number; endTime: number };
 
 export const useGameUser = () => {
   const { user } = useAuthState();

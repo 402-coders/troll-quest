@@ -1,4 +1,5 @@
 import { Header } from '~/components/shared/components/Header';
+import { Leaderboard } from './Leaderboard';
 
 export type PartyQuestSummaryProps = {};
 
@@ -7,12 +8,13 @@ export const PartyQuestSummary = ({}: PartyQuestSummaryProps) => {
 
   return (
     <div className="justify-content flex-col flex w-100 ">
-      <Header>Dołącz do imprezy: {}</Header>
+      <Header>Dołącz do imprezy: </Header>
       <span className="text-2xl font-bold text-center w-full">
-        Link do gry
+        Link do gry:
         <a target="_blank" href={joinGamePath}>
           {joinGamePath}
         </a>
+        <Leaderboard />
       </span>
     </div>
   );

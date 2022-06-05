@@ -23,8 +23,7 @@ export type GameProps = {
 export const Game = ({ questions }: GameProps) => {
   const sliderRef = useRef<CarouselRef>(null);
   const gameName = useGameName();
-  const { gameUser, isLoading } = useGameUser();
-  const [data] = usePartyQuestContext();
+  const { gameUser } = useGameUser();
   const [currentQuestionIndex, setcurrentQuestionIndex] = useState(0);
   const navigate = useNavigate();
   const { addPoints } = useAddPoints();
@@ -33,7 +32,7 @@ export const Game = ({ questions }: GameProps) => {
   const handleClick = (isReal: boolean) => async () => {
     if (currentQuestionIndex >= questions.length - 1) {
       const collectionPath = `games/${gameName}/users` as any;
-      if (user) await updateDocument(collectionPath, user.id, { ...user, hasFinished: true });
+      if (user) await updateDocument(collectionPath, user.id, { ...user, hasFinished: true, endTime: Date.now() });
       navigate(appRoutes.partySummary.replace(':gameName', gameName ?? ''));
       return;
     }
