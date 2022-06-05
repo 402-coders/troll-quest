@@ -16,7 +16,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
         data-tip="Twoje złote lupy"
       >
         <GoldGlass />
-        <h3 className="text-4xl font-bold m-0">{user.points}</h3>
+        <h3 className="text-4xl font-bold pl-4 m-0">{user.points}</h3>
       </div>
 
       <div className="avatar self-center">
