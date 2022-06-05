@@ -54,9 +54,9 @@ const Shop = () => {
           </TabList>
 
           <TabPanel className="h-4/5 flex flex-row justify-around flex-wrap">
-            {/* {themes.map((theme) => (
+            {themes.map((theme) => (
               <ThemePicker key={theme} theme={theme} />
-            ))} */}
+            ))}
           </TabPanel>
           <TabPanel className="flex flex-wrap justify-around">
       <div className="m-5 border-2 border-primary w-52 flex flex-col items-center">
