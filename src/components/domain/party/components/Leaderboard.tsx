@@ -15,7 +15,7 @@ const calculateTimeToComplete = (startTime: number, endTime: number) => {
   if (time > 0) {
     const minutes = Math.floor(time / 60000);
     const seconds = Number(((time % 60000) / 1000).toFixed(0));
-    return seconds == 60 ? minutes + 1 + ':00' : minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+    return seconds == 60 ? `${minutes + 1  }:00` : `${minutes  }:${  seconds < 10 ? '0' : ''  }${seconds}`;
   }
 
   return '';
@@ -26,7 +26,7 @@ export const Leaderboard = ({}: LeaderboardProps) => {
   const collectionPath = `games/${gameName}/users/` as any;
   const [users, isLoading] = useCollectionData<GameUser>(collection(db, collectionPath) as any);
 
-  if (isLoading || !users) return <Loader></Loader>;
+  if (isLoading || !users) return <Loader />;
 
   return (
     <div className="p-8">
