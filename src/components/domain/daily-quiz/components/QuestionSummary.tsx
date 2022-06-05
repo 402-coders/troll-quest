@@ -11,37 +11,39 @@ export const QuestionSummary = ({ left, right, isCorrect }: QuestionSummaryProps
 
   return (
     <div className="card w-[20vw] bg-base-300 shadow-xl flex ">
-      <div className="flex justify-center mt-4">
+      <div className="flex justify-center my-4">
         {isCorrect ? (
           <div className="flex items-center gap-2">
             <CheckCircleIcon className="w-16 text-success" />
-            <h3 className="text-2xl m-0 text-success">Dobrze</h3>
+            <h3 className="text-4xl font-bold m-0 text-success">Dobrze</h3>
           </div>
         ) : (
           <div className="flex items-center gap-2">
             <MinusCircleIcon className="w-16 text-error" />
-            <h3 className="text-4xl m-0 text-error">Źle</h3>
+            <h3 className="text-4xl font-bold m-0 text-error">Źle</h3>
           </div>
         )}
       </div>
-      <div className="card-body">
-        <h2 className={`card-title `}>
+
+      <figure>
+        <img src={left.image_url} alt="question-image" />
+      </figure>
+      <div className="card-body pt-2 mb-4">
+        <h2 className="card-title m-0">
           {left.title}
           <span className={`text-2xl ${leftClass}`}>{leftPostFix}</span>
         </h2>
       </div>
+
       <figure>
-        <img src={left.image_url} alt="question-image" />
+        <img src={right.image_url} alt="question-image" />
       </figure>
-      <div className="card-body">
-        <h2 className={`card-title `}>
+      <div className="card-body pt-2 mb-4">
+        <h2 className="card-title m-0">
           {right.title}
           <span className={`text-2xl ${rightClass}`}>{rigthPostFix}</span>
         </h2>
       </div>
-      <figure>
-        <img src={right.image_url} alt="question-image" />
-      </figure>
     </div>
   );
 };
