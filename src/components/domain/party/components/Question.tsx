@@ -10,7 +10,7 @@ export const Question = ({ image, header, source, onClick }: QuestionProps) => {
 
   return (
     <div
-      className="card w-[25vw] m-10 bg-base-300 shadow-xl cursor-pointer hover:scale-110 transition-all"
+      className="card w-[80vw] lg:max-w-[25vw] my-2 mx-4 lg:m-10 bg-base-300 shadow-xl cursor-pointer hover:scale-110 transition-all"
       onClick={onClick(isReal)}
     >
       <div className="card-body">

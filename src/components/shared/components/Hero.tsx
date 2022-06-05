@@ -9,5 +9,5 @@ export const Hero = ({}: HeroProps) => {
 
   const heroPath = user?.currentHero ? heroImage[user.currentHero] : defaultHeroPath;
 
-  return <img className="w-64 object-contain" style={{ transform: 'scaleX(-1)' }} src={heroPath} alt="hero" />;
+  return <img className="w-28 lg:w-72 object-contain" style={{ transform: 'scaleX(-1)' }} src={heroPath} alt="hero" />;
 };
