@@ -1,8 +1,5 @@
 import { PartyQuestContextProvider, usePartyQuestContext } from '../contexts/PartyQuestContext';
 
-import { useEffect, useState } from 'react';
-import { getFakeNews, getRealNews } from '../api/news';
-import { mockData } from '../api/mockData';
 import { Loader } from '~/components/shared/components/Loader';
 import { Game } from './Game';
 import { useGame } from '../hooks/useGame';

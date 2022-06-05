@@ -7,9 +7,10 @@ module.exports = {
   },
   theme: {
     screens: {
-      'mobile': {'min': '300px', 'max': '500px'},
-      'laptop': '1024px',
-      'desktop': '1280px',
+      mobile: { min: '300px', max: '500px' },
+      laptop: '1024px',
+      desktop: '1280px',
+      lg: '1280px',
     },
     // minWidth: {
     //   40: '10rem',
