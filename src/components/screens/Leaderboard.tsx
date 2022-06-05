@@ -14,23 +14,28 @@ export const Leaderboard = () => {
     <div className="p-8">
       <Header>Leaderboard</Header>
       <div className="flex flex-col items-center ">
-        {users?.map((user, id) => (
-          <div key={id} className="mobile:w-screen mx-3 mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
-            <p>{id + 1}</p>
-            <div className="avatar self-center">
-              <div className="w-12 h-12 rounded-full">
-                <img src={user.avatar} alt="user avatar" />
+        {users
+          ?.sort((a, b) => b.points - a.points)
+          .map((user, id) => (
+            <div
+              key={id}
+              className="mobile:w-screen mx-3 mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2"
+            >
+              <p>{id + 1}</p>
+              <div className="avatar self-center">
+                <div className="w-12 h-12 rounded-full">
+                  <img src={user.avatar} alt="user avatar" />
+                </div>
+              </div>
+              <p className="w-12 text-center font-black">{user.displayName}</p>
+              <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
+
+              <div className="flex">
+                <p className="w-10 m-2 text-lg font-black">{user.points}</p>
+                <GoldGlass />
               </div>
             </div>
-            <p className="w-12 text-center font-black">{user.displayName}</p>
-            <img src={heroImage[user.currentHero]} alt="user hero" className="w-20" />
-
-            <div className="flex">
-              <p className="w-10 m-2 text-lg font-black">{user.points}</p>
-              <GoldGlass />
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );
