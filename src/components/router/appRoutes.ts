@@ -7,8 +7,8 @@ export const appRoutes = {
   pvp: '/pvp',
   dailyQuest: '/daily-quest',
   dailyQuestSummary: '/daily-quest-summary',
-  party: '/party',
-  partySummary: '/party-summary',
+  party: '/party/:gameName',
+  partySummary: '/party-summary/:gameName',
 };
 
 export const appRoutesHeaders = {

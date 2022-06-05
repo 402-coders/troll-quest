@@ -1,5 +1,5 @@
 import { shuffle } from 'lodash-es';
-import { PartyQuestContextValue } from '../contexts/DailyQuestContext';
+import { PartyQuestContextValue } from '../contexts/PartyQuestContext';
 
 export const createQuestions = (data: PartyQuestContextValue) => {
   const questions = [];

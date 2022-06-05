@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { createParty } from '~/components/domain/party/db/createParty';
 import { appRoutes } from '~/components/router/appRoutes';
 
 type PartyProps = {
@@ -9,8 +10,10 @@ type PartyProps = {
 const Party = ({ hero1, hero2, hero3 }: PartyProps) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(appRoutes.partySummary);
+  const handleClick = async () => {
+    const gameName = await createParty();
+    if (!gameName) return;
+    navigate(appRoutes.partySummary.replace(':gameName', gameName));
   };
 
   return (

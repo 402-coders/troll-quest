@@ -1,38 +1,21 @@
-import { PartyQuestContextProvider, usePartyQuestContext } from '../contexts/DailyQuestContext';
-
-export type PartyQuestProps = {};
+import { PartyQuestContextProvider, usePartyQuestContext } from '../contexts/PartyQuestContext';
 
 import { useEffect, useState } from 'react';
 import { getFakeNews, getRealNews } from '../api/news';
 import { mockData } from '../api/mockData';
 import { Loader } from '~/components/shared/components/Loader';
 import { Game } from './Game';
+import { useGame } from '../hooks/useGame';
+
+export type PartyQuestProps = {};
 
 export const PartyQuest = ({}: PartyQuestProps) => {
-  const [data, setData] = usePartyQuestContext();
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const realNews = getRealNews();
-        const fakeNews = getFakeNews();
-        const [real, fake] = await Promise.all([realNews, fakeNews]);
-        setData({ real, fake });
-        setIsError(false);
-        setIsLoading(false);
-      } catch (ex) {
-        setData(mockData);
-        setIsLoading(false);
-        setIsError(true);
-      }
-    })();
-  }, []);
+  const { game, isLoading } = useGame();
 
   if (isLoading) return <Loader />;
+  if (!game?.questions) return <Loader />;
 
-  return <Game />;
+  return <Game questions={game.questions} />;
 };
 
 export const PartyQuestPage = () => {

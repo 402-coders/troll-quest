@@ -1,19 +1,26 @@
 import { increment } from 'firebase/firestore';
 import { useAuthState } from '~/components/contexts/UserContext';
-import { updateDocument } from '~/lib/firebase';
+import { getDocument, setDocument, updateDocument } from '~/lib/firebase';
+import { useGameName } from '../hooks/useGameName';
 
 export const useAddPoints = () => {
   const { user } = useAuthState();
+  const gameName = useGameName();
 
   const addPoints = async (points: number) => {
-    if (!user) return;
+    if (!gameName || !user) return;
 
     try {
-      await updateDocument('users', user.id, { points: increment(points) });
+      const collectionPath = `games/${gameName}/users` as any;
+      const document = await getDocument(collectionPath, user.id);
+      if (!document.exists()) {
+        await setDocument(collectionPath, user.id, { ...user, score: 0 });
+      } else {
+        await updateDocument(collectionPath, user.id, { ...user, score: increment(points) });
+      }
     } catch (error) {
       console.log('🚀 ~ file: addPoints.ts ~ line 15 ~ addPoints ~ error', error);
     }
-    return user.points + points;
   };
 
   return { addPoints };
