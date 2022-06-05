@@ -11,6 +11,8 @@ const Shop = lazy(() => import('~/components/screens/Shop/Shop'));
 const Page404Screen = lazy(() => import('~/components/screens/404/404'));
 const DailyQuestScreen = lazy(() => import('~/components/screens/DailyQuestPage'));
 const DailyQuestScreenSummary = lazy(() => import('~/components/screens/DailyQuestPageSummary'));
+const PartyQuestScreen = lazy(() => import('~/components/screens/PartyQuestPage'));
+const PartyQuestSummaryScreen = lazy(() => import('~/components/screens/PartyQuestPageSummary'));
 
 const Router = () => {
   const routes: RouteObject[] = [
@@ -24,6 +26,16 @@ const Router = () => {
       element: <IndexScreen />,
     },
     {
+      path: appRoutes.party,
+      element: <NavBar />,
+      children: [{ element: <PartyQuestScreen />, index: true }],
+    },
+    {
+      path: appRoutes.partySummary,
+      element: <NavBar />,
+      children: [{ element: <PartyQuestSummaryScreen />, index: true }],
+    },
+    {
       path: appRoutes.dailyQuest,
       element: <NavBar />,
       children: [{ element: <DailyQuestScreen />, index: true }],
@@ -33,6 +45,7 @@ const Router = () => {
       element: <NavBar />,
       children: [{ element: <DailyQuestScreenSummary />, index: true }],
     },
+
     {
       path: appRoutes.leaderboard,
       element: <NavBar />,
