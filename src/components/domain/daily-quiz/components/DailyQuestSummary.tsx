@@ -13,7 +13,7 @@ export const DailyQuestSummary = ({}: DailyQuestSummaryProps) => {
   return (
     <div className="justify-content flex-col flex w-100 mt-8">
       <Header>Odpowiedziałeś poprawnie na: {totalScore}</Header>
-      <span className="text-center text-2xl mt-4">Dostajesz {totalScore * 10} złotych lup</span>
+      <span className="text-center text-2xl mb-4">Dostajesz {totalScore * 10} złotych lup</span>
       <div className="flex gap-4 w-full mt-5">
         {questions.map((question, i) => (
           <QuestionSummary key={i} {...question} />
