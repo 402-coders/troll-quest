@@ -33,6 +33,7 @@ export const Leaderboard = ({}: LeaderboardProps) => {
       <Header>Lista najlepszych:</Header>
       <div className="flex flex-col items-center">
         {users
+          ?.sort((a, b) => a.endTime - a.startTime - (b.endTime - b.startTime))
           ?.sort((a, b) => b.score - a.score)
           .map((user) => (
             <div

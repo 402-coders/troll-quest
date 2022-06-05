@@ -1,5 +1,6 @@
-import { useLocation } from 'react-router-dom';
-import { appRoutesHeaders } from '~/components/router/appRoutes';
+import { Link, useLocation } from 'react-router-dom';
+import { appRoutes, appRoutesHeaders } from '~/components/router/appRoutes';
+import GoldGlass from '~/components/shared/components/GoldGlass';
 import { Head } from '~/components/shared/components/Head/Head';
 import { Header } from '~/components/shared/components/Header';
 import { Questions } from '../utils/createQuestions';
@@ -13,9 +14,21 @@ export const DailyQuestSummary = () => {
   return (
     <div className="justify-content flex-col flex w-100 mt-8">
       <Head title={appRoutesHeaders.dailyQuestSummary} />
-      <Header>Odpowiedziałeś poprawnie na: {totalScore}</Header>
-      <span className="text-center text-2xl my-4">Dostajesz {totalScore * 10} złotych lup</span>
-      <div className="flex gap-4 justify-evenly w-full mt-5">
+      <div className="flex justify-center items-center gap-10">
+        <div className="flex flex-col justify-end">
+          <Header>Odpowiedziałeś poprawnie na: {totalScore}</Header>
+          <div className="text-right text-2xl my-2 flex justify-end">
+            Dostajesz {totalScore * 10}{' '}
+            <span className="ml-2">
+              <GoldGlass />
+            </span>
+          </div>
+        </div>
+        <Link to={appRoutes.dailyQuest}>
+          <button className="btn btn-primary btn-lg btn-wide">Jeszcze raz</button>
+        </Link>
+      </div>
+      <div className="flex gap-4 justify-evenly w-full mt-8">
         {questions.map((question, i) => (
           <QuestionSummary key={i} {...question} />
         ))}

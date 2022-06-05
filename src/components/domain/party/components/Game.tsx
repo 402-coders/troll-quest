@@ -8,7 +8,7 @@ import { Monster } from './Monster';
 import { useAddPoints } from '../db/addPoints';
 import { Hero } from '~/components/shared/components/Hero';
 import { useGameName } from '../hooks/useGameName';
-import { updateDocument } from '~/lib/firebase';
+import { getDocument, setDocument, updateDocument } from '~/lib/firebase';
 import { useAuthState } from '~/components/contexts/UserContext';
 import { useGameUser } from '../hooks/useGameUser';
 import Carousel from 'react-material-ui-carousel';
@@ -26,15 +26,26 @@ export const Game = ({ questions }: GameProps) => {
   const { user } = useAuthState();
 
   const handleClick = (isReal: boolean) => async () => {
+    if (currentQuestionIndex === 0 && user) {
+      const collectionPath = `games/${gameName}/users` as any;
+      const document = await getDocument(collectionPath, user.id);
+
+      if (!document.exists()) {
+        await setDocument(collectionPath, user.id, { ...user, score: 0, startTime: Date.now() });
+      }
+    }
+
+    if (isReal) {
+      await addPoints(10);
+    }
+
     if (currentQuestionIndex >= questions.length - 1) {
       const collectionPath = `games/${gameName}/users` as any;
       if (user) await updateDocument(collectionPath, user.id, { ...user, hasFinished: true, endTime: Date.now() });
       navigate(appRoutes.partySummary.replace(':gameName', gameName ?? ''));
       return;
     }
-    if (isReal) {
-      addPoints(10);
-    }
+
     setcurrentQuestionIndex((current) => current + 1);
   };
 
