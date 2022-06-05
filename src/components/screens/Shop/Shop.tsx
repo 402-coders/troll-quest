@@ -40,7 +40,7 @@ const Shop = () => {
     <>
       <Head title={appRoutesHeaders.shop} />
       <div className="w-4/5 mx-auto my-5 border-8 border-primary">
-        <Tabs>
+        <Tabs className="min-w-sm">
           <TabList className="flex flex-row justify-around bg-secondary p-3">
             <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
               Motywy
@@ -48,7 +48,7 @@ const Shop = () => {
             <Tab className="border border-primary rounded-full p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
               skórki
             </Tab>
-            <Tab className="border border-primary rounded-full	 p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
+            <Tab className="border border-primary rounded-full  p-5 font-black uppercase text-lg text-primary cursor-pointer focus:bg-primary focus:text-secondary">
               tryby
             </Tab>
           </TabList>

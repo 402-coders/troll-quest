@@ -17,7 +17,7 @@ function Index() {
   return (
     <>
       <Head title={appRoutesHeaders.signIn} />
-      <div className="w-screen h-screen grid grid-cols-2 grid-rows-1 bg-secondary m-0">
+      <div className="w-screen h-screen flex mobile:flex-col mobile: bg-secondary mobile:justify-center mobile:pl-12">
         <img className="object-cover self-center justify-self-center w-11/12" src={trollWalk} alt="walking troll" />
         <div className="flex flex-col space-y-10 justify-center items-center mr-16">
           <img src={logo} alt="logo" />
