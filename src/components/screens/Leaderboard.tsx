@@ -14,9 +14,9 @@ export const Leaderboard = () => {
     <div className="p-8">
         <Header>Leaderboard</Header>
         <div className="flex flex-col items-center">
-            {users?.map((user, idx )=> (
-                <div key={idx} className="mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
-                    <p>{idx+1}</p>
+            {users?.map((user, id )=> (
+                <div key={id} className="mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
+                    <p>{id+1}</p>
                    <div className="avatar self-center">
                        
                         <div className="w-12 h-12 rounded-full">

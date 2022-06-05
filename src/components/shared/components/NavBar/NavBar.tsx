@@ -24,6 +24,9 @@ function NavBar() {
             <Link to={appRoutes.shop} className="btn btn-ghost normal-case text-xl">
               Sklep
             </Link>
+            <Link to={appRoutes.leaderboard} className="btn btn-ghost normal-case text-xl">
+              Leaderboard
+            </Link>
           </div>
           <div className="flex">{user ? <UserInfo user={user} /> : null}</div>
         </nav>
