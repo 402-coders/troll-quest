@@ -10,7 +10,7 @@ export const QuestionSummary = ({ left, right, isCorrect }: QuestionSummaryProps
   const rigthPostFix = isLeftReal ? ' [FAKE]' : ' [REAL]';
 
   return (
-    <div className="card w-[20vw] bg-base-300 shadow-xl flex ">
+    <div className="card w-[80vw] lg:w-[20vw] bg-base-300 shadow-xl flex ">
       <div className="flex justify-center my-4">
         {isCorrect ? (
           <div className="flex items-center gap-2">

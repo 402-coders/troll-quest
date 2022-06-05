@@ -14,11 +14,11 @@ export const DailyQuestSummary = () => {
   return (
     <div className="justify-content flex-col flex w-100 mt-8">
       <Head title={appRoutesHeaders.dailyQuestSummary} />
-      <div className="flex justify-center items-center gap-10">
+      <div className="flex flex-col lg:flex-row justify-center items-center gap-10">
         <div className="flex flex-col justify-end">
-          <Header>Odpowiedziałeś poprawnie na: {totalScore}</Header>
-          <div className="text-right text-2xl my-2 flex justify-end">
-            Dostajesz {totalScore * 10}{' '}
+          <Header>Udzieliłeś {totalScore} poprawnych odpowiedzi</Header>
+          <div className="text-center lg:text-right text-2xl my-2 flex justify-end">
+            Dostajesz {totalScore * 10}
             <span className="ml-2">
               <GoldGlass />
             </span>
@@ -28,7 +28,7 @@ export const DailyQuestSummary = () => {
           <button className="btn btn-primary btn-lg btn-wide">Jeszcze raz</button>
         </Link>
       </div>
-      <div className="flex gap-4 justify-evenly w-full mt-8">
+      <div className="flex items-center flex-col lg:flex-row gap-4 justify-evenly w-full mt-8">
         {questions.map((question, i) => (
           <QuestionSummary key={i} {...question} />
         ))}

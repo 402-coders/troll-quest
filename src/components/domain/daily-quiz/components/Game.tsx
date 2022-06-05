@@ -31,7 +31,7 @@ export const Game = () => {
 
   return (
     <div className="w-full justify-center">
-      <div className="flex justify-center gap-4 mt-10">
+      <div className="justify-center gap-4 mt-8 hidden lg:flex">
         <Monster />
         <Hero />
       </div>
@@ -46,7 +46,7 @@ export const Game = () => {
       >
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
-            <div className="flex justify-evenly py-10 max-w-screen-2xl m-auto">
+            <div className="flex flex-wrap items-center justify-evenly py-0 lg:py-10 w-screen m-auto flex-col lg:flex-row">
               <Question header={right.title} image={right.image_url} source={right.source} onClick={handleClick} />
               <Question header={left.title} image={left.image_url} source={left.source} onClick={handleClick} />
             </div>
