@@ -1,18 +1,15 @@
-import { useMemo, useRef, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useDailyQuestContext } from '../contexts/DailyQuestContext';
 import { createQuestions } from '../utils/createQuestions';
 import { Question } from './Question';
-import 'antd/dist/antd.css';
-import { CarouselRef } from 'antd/lib/carousel';
-import { Carousel } from 'antd';
 import { appRoutes } from '~/components/router/appRoutes';
 import { useNavigate } from 'react-router-dom';
 import { Monster } from './Monster';
 import { useAddPoints } from '../db/addPoints';
 import { Hero } from '~/components/shared/components/Hero';
+import Carousel from 'react-material-ui-carousel';
 
 export const Game = () => {
-  const sliderRef = useRef<CarouselRef>(null);
   const [data] = useDailyQuestContext();
   const questions = useMemo(() => createQuestions(data), []);
   const [currentQuestionIndex, setcurrentQuestionIndex] = useState(0);
@@ -29,7 +26,6 @@ export const Game = () => {
 
     if (isReal) questions[currentQuestionIndex].isCorrect = true;
 
-    sliderRef.current?.next();
     setcurrentQuestionIndex((current) => current + 1);
   };
 
@@ -39,8 +35,15 @@ export const Game = () => {
         <Monster />
         <Hero />
       </div>
-      
-      <Carousel dotPosition="bottom" ref={sliderRef}>
+
+      <Carousel
+        className="!overflow-visible"
+        index={currentQuestionIndex}
+        navButtonsAlwaysInvisible
+        autoPlay={false}
+        animation="slide"
+        indicators={false}
+      >
         {questions.map(({ left, right }, i) => (
           <div key={i} className="flex justify-center">
             <div className="flex justify-evenly py-10 max-w-screen-2xl m-auto">
