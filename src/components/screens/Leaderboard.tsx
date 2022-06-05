@@ -13,9 +13,9 @@ export const Leaderboard = () => {
   return (
     <div className="p-8">
       <Header>Leaderboard</Header>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         {users?.map((user, id) => (
-          <div key={id} className="mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
+          <div key={id} className="mobile:w-screen mx-3 mt-10 card w-2/3 h-20 shadow-sm flex flex-row justify-around items-center border-2">
             <p>{id + 1}</p>
             <div className="avatar self-center">
               <div className="w-12 h-12 rounded-full">
