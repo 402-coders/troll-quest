@@ -2,7 +2,7 @@ import { appRoutesHeaders } from '~/components/router/appRoutes';
 import { Head } from '~/components/shared/components/Head/Head';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import elf from '~/assets/heroes/elf.gif'
-import knight from '~/assets/heroes/knight.gif'
+import knight from '~/assets/heroes/Knight.gif'
 import warrior from '~/assets/heroes/warrior.gif'
 import redKnight from '~/assets/heroes/red-knight.gif'
 import bronzeKnight from '~/assets/heroes/bronze-knight.gif'
@@ -33,7 +33,7 @@ const Shop = () => {
     'fantasy',
     'wireframe',
     'dracula',
-    'cmyk',
+    'cmyk'
   ] as const;
 
   return (

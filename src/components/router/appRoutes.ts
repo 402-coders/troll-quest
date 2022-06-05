@@ -7,7 +7,8 @@ export const appRoutes = {
   pvp: '/pvp',
   dailyQuest: '/daily-quest',
   dailyQuestSummary: '/daily-quest-summary',
-  party: '/party',
+  party: '/party/:gameName',
+  partySummary: '/party-summary/:gameName',
   leaderboard: '/leaderboard',
 };
 
@@ -21,6 +22,7 @@ export const appRoutesHeaders = {
   dailyQuest: 'CODZIENNY QUIZ',
   dailyQuestSummary: 'CODZIENNY QUIZ - Podsumowanie',
   party: 'IMPREZA',
+  partySummary: 'IMPREZA - Podsumowanie',
   leaderboard: 'LEADERBOARD',
   error: '404',
 };

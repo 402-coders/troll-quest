@@ -27,7 +27,7 @@ export const useStorage = () => {
 
 export const db = getFirestore(firebaseApp);
 
-export type Collection = 'users';
+export type Collection = 'users' | 'games';
 
 export const setDocument = (collection: Collection, id: string, data: unknown) => {
   return setDoc(doc(db, collection, id), data);
